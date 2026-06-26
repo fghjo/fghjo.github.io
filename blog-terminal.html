@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Announcing Terminal Recording — CodeSync Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="content-page">
+    <div class="container">
+
+      <p style="color:var(--gray-600);font-size:0.9rem;margin-bottom:8px;">June 5, 2026 · 5 min read</p>
+      <h1 style="font-size:2.5rem;font-weight:700;color:var(--secondary);margin-bottom:20px;">Announcing Terminal Recording</h1>
+      <p style="font-size:1.15rem;color:var(--gray-600);margin-bottom:40px;">We added terminal recording. Here's why we built it, how it works, and why it's off by default (spoiler: it's about security).</p>
+
+      <h2>Why Would You Want This?</h2>
+      <p>If you've ever debugged a production issue with two other people on a Zoom call, all trying to type into the same SSH session and talking over each other — you know the pain. Terminal recording lets you do that, but asynchronously and without the "who's typing?" confusion.</p>
+      <p>It's also great for onboarding. Instead of a junior dev shadowing you for 3 hours (both of you trying to look busy), they can watch a recording of you debugging a real issue and pause/rewind as needed.</p>
+
+      <h2>How We Built It (The Short Version)</h2>
+      <p>The terminal output gets captured on the server side (since that's where the session actually runs). We stream it to S3 in real-time, so if someone's laptop dies mid-session, the recording survives.</p>
+      <p>Recordings are stored per session and show up in the project dashboard. You can skim through the timeline, and there's a text search (find that error message you saw 20 minutes in).</p>
+
+      <h2>The Security Part (Important)</h2>
+      <p>Terminal output can contain... a lot. API keys, passwords, internal URLs, that curl command with your AWS credentials in the URL. So recording is off by default. You have to explicitly turn it on per session.</p>
+      <p>There's also a keyboard shortcut (Ctrl+Shift+R) to pause/resume recording if you're about to type something sensitive. And for Enterprise customers, we can auto-redact common patterns (API keys, credit card numbers) before anything gets stored.</p>
+
+      <h2>What's Next</h2>
+      <p>Two things in the works:</p>
+      <p><strong>Async sharing.</strong> Right now if you want to share a recording, you have to be on the same CodeSync team. We're adding the ability to generate a shareable link (with expiration, obviously).</p>
+      <p><strong>SVG exports.</strong> Someone asked if they could export a recording as an animated SVG for documentation. It's a weird use case but actually cool — you could show a "how to deploy" tutorial right in your docs. We're building it.</p>
+
+      <hr style="margin:40px 0;border:none;border-top:1px solid var(--gray-200);">
+
+      <p style="color:var(--gray-600);">Terminal recording is available on Pro and Enterprise plans. <a href="pricing.html">Upgrade here</a> or start a free trial — no credit card needed.</p>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

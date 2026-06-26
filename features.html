@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — CodeSync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html" class="active">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Features</h1>
+      <p>Everything you need for seamless remote pair programming.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">◉</div>
+          <h3>Real-Time Editing</h3>
+          <p>You and your teamtype in the same file. You see their cursors moving. It's weirdly satisfying. We spent way too long optimizing our CRDT engine to keep latency low — under 100ms globally if your connection is decent.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">◎</div>
+          <h3>Voice & Video, Built In</h3>
+          <p>Click a button, start talking. No "let me send you a Zoom link" or "can you hear me?". The audio runs on WebRTC and handles bad connections better than you'd expect. We use it daily for our own standups.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⬡</div>
+          <h3>Diff Viewer That Gets It</h3>
+          <p>When someone changes code, you see a diff. But unlike Git diffs, this one understands code structure — so it won't show you a meaningless mess just because someone reformatted a function. It groups related changes together.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">▤</div>
+          <h3>Navigate the Whole Project</h3>
+          <p>It's not just one file. You get a file tree, tabs, and fuzzy search (Ctrl+P, like VS Code). We support around 40 languages with syntax highlighting. It's not as full-featured as a local IDE, but it's good enough for most pair programming sessions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚑</div>
+          <h3>Permissions You'll Actually Use</h3>
+          <p>Give a client view-only access to a branch. Let a contractor comment on specific lines. Or just give your team full edit access. You can change or revoke access anytime — useful when a contractor's contract ends and you want to sleep at night.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">▸</div>
+          <h3>Shared Terminal</h3>
+          <p>Run commands, everyone sees the output. The terminal is sandboxed per session so nobody accidentally deletes prod. We use this constantly for debugging — way better than three people on a Zoom call all trying to type into the same SSH session.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✎</div>
+          <h3>Inline Comments</h3>
+          <p>Highlight a line, leave a comment. Threaded replies. Resolve when fixed. It's like Google Docs comments but for code. We use it for code review without switching to GitHub PRs for small stuff.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">↻</div>
+          <h3>Version History (Automatic)</h3>
+          <p>Every change is saved. You can rewind to any point and see exactly what changed and who did it. Exports as a ZIP if you need to share it. It's saved us a couple times when someone accidentally deleted a file and didn't notice for an hour.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>VS Code Extension</h3>
+          <p>Don't want to use the browser editor? Fair enough. Install our extension and collaborate from VS Code. All the same features, same real-time sync, but in your own editor. JetBrains support is coming (slowly — if you're a JetBrains dev, hit us up).</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" style="text-align:center;">
+    <div class="container">
+      <h2 style="font-size:2rem;font-weight:700;color:var(--secondary);margin-bottom:12px;">Ready to try it?</h2>
+      <p style="font-size:1.1rem;color:var(--gray-600);margin-bottom:32px;">Free for up to 5 collaborators. No credit card required.</p>
+      <a href="pricing.html" class="btn btn-primary btn-lg">Get Started Free</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

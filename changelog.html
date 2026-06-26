@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — CodeSync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Changelog</h1>
+      <p>Stay up to date with the latest improvements and fixes.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="changelog-list">
+
+        <div class="changelog-item">
+          <div class="changelog-date">June 2026</div>
+          <div class="changelog-content">
+            <h3>v2.8.0 — Terminal Recording (Finally)</h3>
+            <ul>
+              <li>You can now record terminal sessions. Was supposed to ship in v2.6 but we hit some bugs with output buffering. It's solid now. Recordings are stored per session and you can replay them in the browser.</li>
+              <li>Latency improvement for APAC users — we added a new edge server in Singapore. Should be noticeably faster if you're in that region.</li>
+              <li>VS Code extension v1.9.0: fixed the "disconnect and never reconnect" bug. Also added a manual reconnect button because sometimes you just want to force it.</li>
+              <li>Fixed a bug where if two people typed on the same line at exactly the same time, cursors would jump around. Annoying to debug, but fixed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <div class="changelog-date">May 2026</div>
+          <div class="changelog-content">
+            <h3>v2.7.0 — Permissions Got a Rewrite</h3>
+            <ul>
+              <li>The old permission system was... not great. We rewrote it. You can now set per-file permissions (give someone view-only access to just one file). Took way longer than expected.</li>
+              <li>Added a "comment-only" role. Useful for code reviews where you want someone to leave feedback but not actually change the code.</li>
+              <li>New API endpoints for managing team members. If you're automating onboarding, this should help.</li>
+              <li>Fixed a bug where files over 2MB would cause the editor to stutter. Turned out we were trying to syntax-highlight the entire file in one go. Oops.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <div class="changelog-date">April 2026</div>
+          <div class="changelog-content">
+            <h3>v2.6.0 — AI Completions (Opt-In)</h3>
+            <ul>
+              <li>Added optional AI code suggestions. It's off by default — you have to turn it on in settings. GDPR compliant (we're not storing your code to train models). Uses a small local model for basic completions and falls back to a bigger model for complex stuff.</li>
+              <li>Dark mode! Took us way too long. It's in the top-right menu. Your eyes will thank us.</li>
+              <li>Diff viewer now actually understands code structure in Python and Go. Before, it would sometimes show diffs that were technically correct but human-unreadable. Better now.</li>
+              <li>Memory leak fixed — if you left a session open for 6+ hours, the browser tab would start using 2GB of RAM. Not ideal. Fixed.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <div class="changelog-date">March 2026</div>
+          <div class="changelog-content">
+            <h3>v2.5.0 — Offline Editing</h3>
+            <ul>
+              <li>Big one: you can now edit offline. Changes sync when you're back online. Uses IndexedDB to store changes locally. We tested it by turning off WiFi and it actually works (most of the time).</li>
+              <li>Added "follow mode" — click on someone's name and your editor scrolls to follow their cursor. Useful for code walkthroughs.</li>
+              <li>Enterprise: SSO support for Okta and Azure AD. Took a while to get the SAML flows right.</li>
+              <li>Firefox users: fixed the echo issue in voice chat. Was a WebRTC config problem on our end.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <div class="changelog-date">February 2026</div>
+          <div class="changelog-content">
+            <h3>v2.4.0 — Mobile Apps</h3>
+            <ul>
+              <li>Launched iOS and Android apps. They're viewer-only for now (you can look at code and leave comments, but not edit). Editing on mobile is coming but the touch keyboard situation is... complicated.</li>
+              <li>Added Markdown preview. If you're editing a README or docs, you can split-pane to see how it'll render.</li>
+              <li>Onboarding rewrite. Used to take 7 clicks to join your first session. Now it's 3. Every click matters.</li>
+              <li>Fixed a race condition where if the host of a session left and immediately rejoined, some people would get disconnected. Subtle bug, annoying fix.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-item">
+          <div class="changelog-date">January 2026</div>
+          <div class="changelog-content">
+            <h3>v2.3.0 — Public Launch</h3>
+            <ul>
+              <li>We're out of beta. The site's open to everyone now.</li>
+              <li>Free tier bumped to 5 collaborators (was 2). We kept hitting the limit ourselves during internal testing, so figured others would too.</li>
+              <li>Added project export — you can download your entire project as a ZIP. Useful if you want to migrate away or just want a backup.</li>
+              <li>Hit 10,000 users. Not a huge number but it means something to us. Thanks to everyone who's stuck with us since the early days.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

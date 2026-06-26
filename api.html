@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference — CodeSync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>API Reference</h1>
+      <p>Integrate CodeSync into your workflow with our RESTful API.</p>
+    </div>
+  </div>
+
+  <section class="content-page">
+    <div class="container">
+
+      <h2>Authentication</h2>
+      <p>You'll need an API key for everything. Generate one in your account settings (profile menu → API Keys). Keys look like this:</p>
+      <pre style="background:var(--gray-100);padding:16px;border-radius:6px;overflow-x:auto;margin:16px 0;font-size:0.9rem;"><code>Authorization: Bearer cs_live_xxxxxxxxxxxx</code></pre>
+
+      <h2>Base URL</h2>
+      <pre style="background:var(--gray-100);padding:16px;border-radius:6px;overflow-x:auto;margin:16px 0;font-size:0.9rem;"><code>https://api.codesync.dev/v1</code></pre>
+
+      <h2>Endpoints</h2>
+
+      <h3>Projects</h3>
+      <table class="api-table">
+        <thead>
+          <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>GET</code></td><td><code>/projects</code></td><td>List all projects</td></tr>
+          <tr><td><code>POST</code></td><td><code>/projects</code></td><td>Create a new project</td></tr>
+          <tr><td><code>GET</code></td><td><code>/projects/{id}</code></td><td>Get project details</td></tr>
+          <tr><td><code>PATCH</code></td><td><code>/projects/{id}</code></td><td>Update project</td></tr>
+          <tr><td><code>DELETE</code></td><td><code>/projects/{id}</code></td><td>Delete project</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Collaborators</h3>
+      <table class="api-table">
+        <thead>
+          <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>GET</code></td><td><code>/projects/{id}/members</code></td><td>List collaborators</td></tr>
+          <tr><td><code>POST</code></td><td><code>/projects/{id}/members</code></td><td>Invite collaborator</td></tr>
+          <tr><td><code>DELETE</code></td><td><code>/projects/{id}/members/{uid}</code></td><td>Remove collaborator</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Sessions</h3>
+      <table class="api-table">
+        <thead>
+          <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>GET</code></td><td><code>/sessions</code></td><td>List active sessions</td></tr>
+          <tr><td><code>POST</code></td><td><code>/sessions</code></td><td>Create a session</td></tr>
+          <tr><td><code>DELETE</code></td><td><code>/sessions/{id}</code></td><td>End a session</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Webhooks</h2>
+      <p>If you want to get notified when something happens (like someone starts a session or a file gets updated), set up a webhook URL in your integration settings. We'll POST to that URL when events happen.</p>
+      <p>Supported events:</p>
+      <ul>
+        <li><code>session.started</code> — a new collaboration session begins</li>
+        <li><code>session.ended</code> — a session is closed</li>
+        <li><code>member.added</code> — a collaborator is invited</li>
+        <li><code>member.removed</code> — a collaborator is removed</li>
+        <li><code>file.updated</code> — a file is modified</li>
+      </ul>
+
+      <h2>Rate Limits</h2>
+      <p>The API enforces a rate limit of 1,000 requests per hour per API key. Exceeding the limit returns a <code>429 Too Many Requests</code> response. Check the <code>X-RateLimit-Remaining</code> header to monitor your usage.</p>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

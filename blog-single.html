@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How We Reduced Editor Latency by 60% — CodeSync Blog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="content-page">
+    <div class="container">
+
+      <p style="color:var(--gray-600);font-size:0.9rem;margin-bottom:8px;">June 18, 2026 · 8 min read</p>
+      <h1 style="font-size:2.5rem;font-weight:700;color:var(--secondary);margin-bottom:20px;">How We Reduced Editor Latency by 60%</h1>
+      <p style="font-size:1.15rem;color:var(--gray-600);margin-bottom:40px;">We spent 8 months rewriting our editing engine. Here's what we learned and why it actually matters for your day-to-day.</p>
+
+      <h2>The Problem (Besides Our Bad Architecture Decisions)</h2>
+      <p>When two people edit the same file, every keystroke has to get transmitted, merged, and rendered on both screens. If you're in the same office, that's maybe 10ms. If you're in SF and your teammate is in Bangalore, that's 200-300ms per round trip. And that's if the network is behaving.</p>
+      <p>Our first version used Operational Transformation (OT) — same thing Google Docs uses. It works fine for text, but code isn't just text. You've got brackets that need to match, indentation that matters, and syntax that'll break if you're in the middle of a tag. OT doesn't understand any of that, so you'd get这些 moments where the code was temporarily invalid and everything broke.</p>
+
+      <h2>Why We Ditched OT for CRDTs</h2>
+      <p>CRDT stands for "Conflict-free Replicated Data Type" (terrible name, great concept). The idea is: everyone's edits get applied locally first, then merged later when updates arrive. As long as you follow certain rules, everyone converges to the same state.</p>
+      <p>We looked at using Yjs or Automerge (the two big open-source CRDT libraries). They're great projects, but: (a) Yjs is optimized for text but doesn't handle code structure, (b) Automerge has a big memory footprint for large files, and (c) neither gave us quite the control we wanted over cursor behavior.</p>
+      <p>So, like idiots, we decided to build our own. Took way longer than expected. But we got there.</p>
+
+      <h2>What We Actually Built</h2>
+      <p>Two main pieces:</p>
+      <p><strong>Fractional indexing for positions.</strong> Instead of saying "this character is at position 5", we say "this character is between position 0.5 and 0.75". That means if two people insert characters at the same spot, they both get unique positions without renumbering everything. It's math, it works.</p>
+      <p><strong>RGA for the character sequence.</strong> Replicated Growable Array. Each character knows which character came before it. When updates arrive out of order, we can still place them correctly. This is also how Google Docs works under the hood, roughly.</p>
+
+      <h2>The Numbers (Which We're Proud Of)</h2>
+      <p>After rolling this out to everyone in May:</p>
+      <ul>
+        <li>Perceived latency dropped by 60% (measured from keypress to other person seeing it)</li>
+        <li>99.7% of edits converge in under 150ms globally</li>
+        <li>Zero data loss across 4.2 million sessions (we were nervous about this one)</li>
+        <li>Memory usage per session dropped by about 30% compared to our old OT implementation</li>
+      </ul>
+
+      <h2>What's Still Broken</h2>
+      <p>Honesty time: it's not perfect. If you've got a really slow connection (like, edge-of-3G slow), you'll still see lag. The CRDT helps, but physics is still a thing. Also, if you paste a 10,000-line file, things get chunky for a few seconds while we process it. Working on that.</p>
+
+      <h2>What's Next</h2>
+      <p>Two things we're building now:</p>
+      <p><strong>Binary file support.</strong> Right now we only handle text. If you want to collaborate on an image or a PDF, tough luck. We're adding that.</p>
+      <p><strong>Local-first editing.</strong> If your internet dies, we save everything locally and sync when you're back. Already works, still has some edge cases. Should ship in v2.9 (August-ish).</p>
+
+      <hr style="margin:40px 0;border:none;border-top:1px solid var(--gray-200);">
+
+      <p style="color:var(--gray-600);">If you want to try the new engine, <a href="pricing.html">create a free account</a>. It's enabled by default now for everyone. Let us know if it feels faster — or if it breaks, that's useful too.</p>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

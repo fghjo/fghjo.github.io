@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — CodeSync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo"><span>Code</span>Sync</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p>Can't find what you're looking for? <a href="contact.html">Contact our support team</a>.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <h3>Is it actually free?</h3>
+          <p>Yeah. Up to 5 people, no time limit, no credit card. We figure if you like it enough to stick around, you'll upgrade when you need more people or private repos. If not, no hard feelings.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What languages work?</h3>
+          <p>Syntax highlighting works for about 40 languages — the usual suspects (Python, JS, Go, Rust, etc.) plus config files like YAML and JSON. It's not a full IDE so don't expect autocomplete or deep code analysis. It's for collaborating, not replacing VS Code.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does the editing work? Is it magic?</h3>
+          <p>Not magic, just math. We use a CRDT (Conflict-free Replicated Data Type) engine we built ourselves. Basically, everyone's edits get merged correctly even if two people type at the same time. It's the same tech concept as Google Docs, but tuned for code.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is my code safe with you?</h3>
+          <p>We encrypt everything in transit and at rest. For Enterprise customers we can do end-to-end encryption so even we can't see your code. We're SOC 2 certified if that helps you sleep at night. Realistically, your biggest risk is probably leaving your laptop unlocked in a coffee shop, not us.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I use it with VS Code?</h3>
+          <p>Yes, there's an extension. Install it, open a collaborative session, and it works inside VS Code. Some people prefer the browser, some prefer their own editor. Both work fine.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if someone's internet dies mid-session?</h3>
+          <p>We save everything locally and sync when they're back online. Nothing gets lost. We've all had that moment where WiFi cuts out at a bad time — this handles it.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I record a session?</h3>
+          <p>Pro and Enterprise plans can record terminal output and code changes. Useful for training or if you want to review how a bug got fixed. Voice chat doesn't get recorded though — that felt creepy to us.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I invite someone?</h3>
+          <p>Click "Share" in the top right, type their email, pick if they can edit or just view. They get an email with a link. If they don't have an account yet, they'll make one in about 30 seconds.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is there a file size limit?</h3>
+          <p>Free tier is 1 GB total. Pro is 50 GB. Enterprise is unlimited. If you're trying to upload a 10 GB binary, this probably isn't the right tool — we're for code, not file storage.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I cancel?</h3>
+          <p>Go to account settings, click cancel. Your paid plan runs until the billing period ends, then you drop back to Free. We don't do sneaky tactics to make cancellation hard. Life's too short.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><span>Code</span>Sync</div>
+          <p>Real-time code collaboration for remote teams.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="api.html">API</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 CodeSync Inc. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
