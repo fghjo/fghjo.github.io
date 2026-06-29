@@ -35,7 +35,7 @@
 
       <h2>The Problem With Off-the-Shelf CRDTs</h2>
       <p>When we started, we tried Yjs. It's great — seriously, it's the best CRDT library out there for text. But it's designed for "text as a flat string". Code isn't a flat string. If two people are editing inside different functions and the CRDT merges them incorrectly, you get invalid syntax and everything breaks.</p>
-      <p>Automerge is similar — good for text, not great for structured content like code. And both have memory overhead that gets noticeable when you've got a 50,000-line file open (which, yes, some people have).</p>
+      <p>Automerge is similar — good for text, not great for structured content like code. And both have memory overhead that gets noticeable when you've got a 50,000-line file open (which, yes, some people have). If you're curious how Automerge works, their <a href="https://automerge.org/" rel="nofollow" target="_blank">docs</a> are surprisingly readable.</p>
 
       <h2>What We Actually Built</h2>
       <p>Two things that make ours different:</p>

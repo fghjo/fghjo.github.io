@@ -39,7 +39,7 @@
 
       <h2>Why We Ditched OT for CRDTs</h2>
       <p>CRDT stands for "Conflict-free Replicated Data Type" (terrible name, great concept). The idea is: everyone's edits get applied locally first, then merged later when updates arrive. As long as you follow certain rules, everyone converges to the same state.</p>
-      <p>We looked at using Yjs or Automerge (the two big open-source CRDT libraries). They're great projects, but: (a) Yjs is optimized for text but doesn't handle code structure, (b) Automerge has a big memory footprint for large files, and (c) neither gave us quite the control we wanted over cursor behavior.</p>
+      <p>We looked at using <a href="https://yjs.dev/" rel="nofollow" target="_blank">Yjs</a> or Automerge (the two big open-source CRDT libraries). They're great projects, but: (a) Yjs is optimized for text but doesn't handle code structure, (b) Automerge has a big memory footprint for large files, and (c) neither gave us quite the control we wanted over cursor behavior.</p>
       <p>So, like idiots, we decided to build our own. Took way longer than expected. But we got there.</p>
 
       <h2>What We Actually Built</h2>
